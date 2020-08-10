@@ -1,28 +1,29 @@
 var canvas;
-var clickPos;
+//var clickPos;
 p5.disableFriendlyErrors = true;
 
 function windowResized() {
-    if (windowHeight <= 600){
-        resizeCanvas(windowWidth, windowHeight*2);
-    }
-    else if (windowWidth <= 600){
-        resizeCanvas(windowWidth, windowHeight*2);
-    }
-    else if (windowHeight <= 500){
-        resizeCanvas(windowWidth, windowHeight*3);
-    }
-    else if (windowWidth <= 500){
-        resizeCanvas(windowWidth, windowHeight*3);
-    }
-    else {
-        resizeCanvas(windowWidth, windowHeight);
-    }
+    // if (windowHeight <= 600){
+    //     resizeCanvas(windowWidth, windowHeight*2);
+    // }
+    // else if (windowWidth <= 600){
+    //     resizeCanvas(windowWidth, windowHeight*2);
+    // }
+    // else if (windowHeight <= 500){
+    //     resizeCanvas(windowWidth, windowHeight*3);
+    // }
+    // else if (windowWidth <= 500){
+    //     resizeCanvas(windowWidth, windowHeight*3);
+    // }
+    // else {
+    //     resizeCanvas(windowWidth, windowHeight);
+    // }
+    resizeCanvas(windowWidth, windowHeight);
 }
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent('body');  
+  canvas.parent('canvas');  
   canvas.style('z-index', '-1');
   canvas.position(0,0);  
   canvas.scale(5);  
@@ -35,17 +36,17 @@ function mousePressed(){
   console.log(windowWidth, windowHeight);  
 }
 
-function drawSun(){
-  fill('#fede03'); 
-    if (clickPos){
-        ellipse(clickPos[0], clickPos[1], 100);
-    }
-  else 
-      ellipse(150, 150, 100);
-}
+// function drawSun(){
+//   fill('#fede03'); 
+//     if (clickPos){
+//         ellipse(clickPos[0], clickPos[1], 100);
+//     }
+//   else 
+//       ellipse(150, 150, 100);
+// }
 
 function draw() {
-  windowResized();  
+  windowResized(); 
   var addSharpness = -0.03; // -0.3 to 0.3 reasonable
   noiseDetail(1, 0.5 + addSharpness);
 
